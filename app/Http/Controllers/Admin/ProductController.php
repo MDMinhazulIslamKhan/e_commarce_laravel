@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class ProductController extends Controller
 {
     public function Index()
     {
-        return view('admin.dashboard');
+        return view('admin.allproducts');
     }
 
-    public function Category()
+    public function AddProduct()
     {
-        return view('admin.all');
+        return view('admin.addproduct');
     }
 }
