@@ -33,13 +33,10 @@
                                         value="{{ old('subcategory_name', $sub_category_info->subcategory_name) }}" />
                                 </div>
                             </div>
-                            {{-- ক্যাটেগরি সিলেক্টের অপশন করতে হবে
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Select Category</label>
                                 <div class="col-sm-10">
-                                    <select id="category" name="category_id" class="form-select"
-                                        value="{{ old('category_id', $sub_category_info->category_name) }}">
-                                        {{ $sub_category_info }}
+                                    <select id="category" name="category_id" class="form-select">
                                         <option>Open this select menu</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->category_name }}
@@ -47,7 +44,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="row justify-content-end">
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-primary">Update Sub Category</button>

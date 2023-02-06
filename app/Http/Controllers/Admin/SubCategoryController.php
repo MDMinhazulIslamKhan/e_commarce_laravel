@@ -44,21 +44,35 @@ class SubCategoryController extends Controller
 
     public function EditSubCategory($id)
     {
+        $categories = Category::latest()->get();
         $sub_category_info = Subcategory::findOrFail($id);
-        return view('admin.editsubcategory', compact('sub_category_info'));
+        return view('admin.editsubcategory', compact('sub_category_info', 'categories'));
     }
 
     public function UpdateSubCategory(Request $request)
     {
-        $subcategory_id = $request->sub_category_id;
 
+        $subcategory_id = $request->sub_category_id;
+        $old_category_id = Subcategory::where('id', $subcategory_id)->value('category_id');
+        $category_id = $request->category_id;
+        $category_name = Category::where('id', $category_id)->value('category_name');
         $validated = $request->validate([
-            'subcategory_name' => 'required|unique:subcategories',
-        ]);
+            'subcategory_name' => 'required',
+            'category_id' => 'required|numeric',
+        ], ['category_id.numeric' => 'You must select category']);
+
         Subcategory::findOrFail($subcategory_id)->update([
             'subcategory_name' => $request->subcategory_name,
             'slug' => strtolower(str_replace(' ', '-', $request->subcategory_name)),
+            'category_id' => $category_id,
+            'category_name' => $category_name,
         ]);
+
+        if ($old_category_id != $category_id) {
+            Category::where('id', $category_id)->increment('subcategory_count', 1);
+            Category::where('id', $old_category_id)->decrement('subcategory_count', 1);
+        }
+
         return redirect()->route('allsubcategory')->with('message', 'Sub Category updated successfully!!!');
     }
 

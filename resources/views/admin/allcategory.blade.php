@@ -19,7 +19,7 @@
                             <th>Id</th>
                             <th>Category Name</th>
                             <th>Sub Category</th>
-                            <th>Product</th>
+                            <th>Slug</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
