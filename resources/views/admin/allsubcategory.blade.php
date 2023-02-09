@@ -11,7 +11,7 @@
             </div>
         @endif
         <div class="card">
-            <h5 class="card-header">All Sub Category</h5>
+            <h5 class="card-header">Available Sub Category Information</h5>
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <thead class="table-light">
