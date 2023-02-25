@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function Index()
     {
-        $products = Product::latest()->get();
+        $products = Product::inRandomOrder()->get();
         return view('user_temp.home', compact('products'));
     }
 }

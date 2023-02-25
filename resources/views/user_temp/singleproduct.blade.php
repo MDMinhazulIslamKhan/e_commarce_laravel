@@ -36,10 +36,11 @@
                                 <label class="col-sm-3 col-form-label" for="basic-default-name">Quantity</label>
                                 <div class="col-sm-8">
                                     <input type="number" min="1" max="{{ $product->quantity }}" value="1"
-                                        class="form-control" id="product-quantity" name="product-quantity" />
+                                        class="form-control" id="quantity" name="quantity" />
                                 </div>
                             </div>
-                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="price" value="{{ $product->price }}">
                             <input class="btn btn-warning" type="submit" value="Add To Cart">
                         </form>
                     </div>
@@ -65,6 +66,9 @@
                                 <div class="buy_bt">
                                     <form action="{{ route('addproducttocart') }}" method="POST">
                                         @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <input type="hidden" name="price" value="{{ $product->price }}">
+                                        <input type="hidden" name="quantity" value="1">
                                         <button type="submit" class="btn btn-warning">Buy Now</button>
                                     </form>
                                 </div>

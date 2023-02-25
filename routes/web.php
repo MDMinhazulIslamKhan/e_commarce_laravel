@@ -32,15 +32,20 @@ Route::controller(ClientController::class)->group(function () {
     Route::get('/customer-service', 'CustomerService')->name('customerservice');
 });
 
-Route::middleware(['auth', 'role:user'])->group(function () {
+Route::middleware(['auth', 'role:user|admin'])->group(function () {
     Route::controller(ClientController::class)->group(function () {
         Route::get('/add-to-cart', 'AddToCart')->name('addtocart');
         Route::post('/add-product-to-cart', 'AddProductToCart')->name('addproducttocart');
+        Route::post('/place-order', 'PlaceOrder')->name('placeorder');
+        Route::post('/cancel-order', 'CancelOrder')->name('cancelorder');
+        Route::get('/shipping-address', 'ShippingAddress')->name('shippingaddress');
+        Route::post('/add-shipping-info', 'AddShippingInfo')->name('addshippinginfo');
         Route::get('/checkout', 'Checkout')->name('checkout');
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
         Route::get('/user-profile/history', 'History')->name('history');
         Route::get('/todays-deals', 'TodaysDeals')->name('todaysdeals');
         Route::get('/user-profile', 'UserProfile')->name('userprofile');
+        Route::get('/delete-cart-item/{id}', 'DeleteItem')->name('deleteitem');
     });
 });
 
@@ -85,6 +90,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::controller(OrderController::class)->group(function () {
         Route::get('/admin/pending-order', 'Index')->name('pendingorder');
+        Route::get('/admin/approve-order/{id}', 'Approve')->name('approved');
     });
 });
 

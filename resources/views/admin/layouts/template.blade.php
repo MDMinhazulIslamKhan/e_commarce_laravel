@@ -171,7 +171,7 @@
                         </div>
                         <!-- /Search -->
 
-                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                        {{-- <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- Place this tag where you want the button to render. -->
                             <li class="nav-item lh-1 me-3">
                                 <a class="github-button"
@@ -243,7 +243,7 @@
                                 </ul>
                             </li>
                             <!--/ User -->
-                        </ul>
+                        </ul> --}}
                     </div>
                 </nav>
 
@@ -281,7 +281,7 @@
     <script src="{{ asset('dashboard/assets') }}/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="{{ asset('dashboard/assets') }}/vendor/js/helpers.js"></script>
 </body>
 
 </html>

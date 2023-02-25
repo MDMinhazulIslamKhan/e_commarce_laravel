@@ -23,6 +23,9 @@
                                         <div class="buy_bt">
                                             <form action="{{ route('addproducttocart') }}" method="POST">
                                                 @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" name="price" value="{{ $product->price }}">
+                                                <input type="hidden" name="quantity" value="1">
                                                 <button type="submit" class="btn btn-warning">Buy Now</button>
                                             </form>
                                         </div>
@@ -40,7 +43,9 @@
     </div>
     <!-- fashion section end -->
     <!-- electronic section start -->
-    <div class="fashion_section">
+
+
+    {{-- <div class="fashion_section">
         <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -195,10 +200,14 @@
                 <i class="fa fa-angle-right"></i>
             </a>
         </div>
-    </div>
+    </div> --}}
+
+
     <!-- electronic section end -->
     <!-- jewellery  section start -->
-    <div class="jewellery_section">
+
+
+    {{-- <div class="jewellery_section">
         <div id="jewellery_main_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -356,6 +365,8 @@
                 <div class="loader"></div>
             </div>
         </div>
-    </div>
+    </div> --}}
+
+
     <!-- jewellery  section end -->
 @endsection

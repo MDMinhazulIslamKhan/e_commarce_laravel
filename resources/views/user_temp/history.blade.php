@@ -1,7 +1,8 @@
-@extends('user_temp.layouts.user_profile_layout_temp')
+@extends('user_temp.layouts.template')
 @section('title')
-    <title>History e-commerce</title>
+    <title>Best Seller e-commerce</title>
 @endsection
-@section('profile_content')
-    History
+@section('main-content')
+    <!-- fashion section start -->
+    <h1 class="fashion_taital">Best Seller</h1>
 @endsection
